@@ -43,6 +43,20 @@ elseif FDfactor==3  % Leonard's correlation (2010)
         FL=10^(-2.59+0.6*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.6+0.4*M)*(stress_ref/stress)^(1/3);
     end
+elseif FDfactor==4  % Kumar et al.'s correlation (2017)
+    if Rake == 0 || Rake == 180                                  %% Strike Slip
+        FL=10^(-2.943+0.681*M)*(stress_ref/stress)^(1/3);
+        FW=10^(-0.543+0.261*M)*(stress_ref/stress)^(1/3);
+    elseif (Rake > 0) && (Rake < 180) && Fdip ~=0 && Fdip ~= 90  %% Reverse
+        FL=10^(-2.693+0.614*M)*(stress_ref/stress)^(1/3);
+        FW=10^(-1.669+0.435*M)*(stress_ref/stress)^(1/3);
+    elseif (Rake > -180) && (Rake < 0) && Fdip ~=0 && Fdip ~= 90 %% Normal
+        FL=10^(-1.722+0.485*M)*(stress_ref/stress)^(1/3);
+        FW=10^(-0.829+0.323*M)*(stress_ref/stress)^(1/3);
+    else                                                         %% Subduction interface
+        FL=10^(-2.412+0.583*M)*(stress_ref/stress)^(1/3);
+        FW=10^(-0.88+0.366*M)*(stress_ref/stress)^(1/3);
+    end 
 else                % Cheng et al.'s correlation (2019) (for mainland China)
     if Rake == 0 || Rake == 180                                  %% Strike Slip
         FL=10^(-2.45+0.61*M)*(stress_ref/stress)^(1/3);
@@ -125,8 +139,8 @@ for i=1:1:NSL
     [Rrup(i),Rjb(i),Rseis(i),Rx(i),Ry0(i),Azrup(i),Azjb(i),Azseis(i)]=FUNDist(SiteLat(i),SiteLon(i),FaultLat,FaultLon,Fstrike,Fdip,h_ref,s1f,s2f,w1f,w2f,h_min);
 end
 
-%%%---------------------------------------------------------------------%%%
-NT=2^15;        % This is required for pre-determining the time-step number
+%%%-------------------------!!!Warning!!!-------------------------------%%%
+NT=2^16;        % This is required for pre-determining the time-step number
 % Please change this number if the Error is shown similar with 
 % "Unable to perform assignment because the size of the left side is 1-by-16384 and the size of the right side is 1-by-32768."
 %%%---------------------------------------------------------------------%%%

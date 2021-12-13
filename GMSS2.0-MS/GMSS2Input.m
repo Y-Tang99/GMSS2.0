@@ -31,8 +31,8 @@ dt=0.002;          % Time step, no larger than 0.02 s
 % where n is the order of Butterworth filter, usually using 4; and f0 is the
 % corner-frequency (Boore, BSSA, 2005).
 %%%---------------------------------------------------------------------%%%
-tpadl=20;          % Time pad before simulated series
-tpadt=20;          % Time pad after simulated series
+tpadl=40;          % Time pad before simulated series
+tpadt=40;          % Time pad after simulated series
 npadl=tpadl/dt;
 npadt=tpadt/dt;
 
@@ -54,8 +54,9 @@ Rake=45;                      % rake angle, degree (°)
 % FW0=40;       % fault width
 
 % FDfactor=2; % use relation dveloped by Wells & Coppersmith (1994)
-FDfactor=3; % use relation dveloped by Leonard (2010)
-% FDfactor=4; % use relation dveloped by Cheng et al. (2019)
+% FDfactor=3; % use relation dveloped by Leonard (2010)
+ FDfactor=4; % use relation dveloped by Kumar et al. (2017)
+% FDfactor=5; % use relation dveloped by Cheng et al. (2019)
 
 
 
