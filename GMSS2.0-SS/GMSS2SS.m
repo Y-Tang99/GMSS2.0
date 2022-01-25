@@ -37,8 +37,8 @@ dt=0.005;          % Time step, no larger than 0.02 s
 % is the corner-frequency (Boore, BSSA, 2005).
 %%%---------------------------------------------------------------------%%%
 
-tpadl=20;          % Time pad before simulated series
-tpadt=20;          % Time pad after simulated series
+tpadl=40;          % Time pad before simulated series
+tpadt=40;          % Time pad after simulated series
 npadl=tpadl/dt;
 npadt=tpadt/dt;
 
@@ -129,13 +129,13 @@ if FDfactor==1       % usercustom fault dimension
     FL=FL0;           % fault length
     FW=FW0;           % fault width
 elseif FDfactor==2   % Wells & Coppersmith (1994)
-    if Rake == 0 || Rake == 180                                  %% Strike Slip
+    if (Rake >= 150) && (Rake <= 210)  || (Rake >=-30) && (Rake <=30)  %% Strike Slip (see Fig.2.5 in Baker's Book)
         FL=10^(-2.57+0.62*M)*(stress_ref/stress)^(1/3);
         FW=10^(-0.76+0.27*M)*(stress_ref/stress)^(1/3);
-    elseif (Rake > 0) && (Rake < 180) && Fdip ~=0 && Fdip ~= 90  %% Reverse
+    elseif (Rake >= 60) && (Rake <= 120) && Fdip ~=0 && Fdip ~= 90  %% Reverse
         FL=10^(-2.42+0.58*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.61+0.41*M)*(stress_ref/stress)^(1/3);
-    elseif (Rake > -180) && (Rake < 0) && Fdip ~=0 && Fdip ~= 90 %% Normal
+    elseif (Rake >= -120) && (Rake <= -60) && Fdip ~=0 && Fdip ~= 90 %% Normal
         FL=10^(-1.88+0.50*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.14+0.35*M)*(stress_ref/stress)^(1/3);
     else                                                         %% Undefined
@@ -143,13 +143,13 @@ elseif FDfactor==2   % Wells & Coppersmith (1994)
         FW=10^(-1.01+0.32*M)*(stress_ref/stress)^(1/3);
     end
 elseif FDfactor==3  % Leonard's correlation (2010)
-    if Rake == 0 || Rake == 180                                  %% Strike Slip
+    if (Rake >= 150) && (Rake <= 210)  || (Rake >=-30) && (Rake <=30) %% Strike Slip
         FL=10^(-2.5+0.6*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.49+0.4*M)*(stress_ref/stress)^(1/3);
-    elseif (Rake > 0) && (Rake < 180) && Fdip ~=0 && Fdip ~= 90  %% Reverse
+    elseif  (Rake >= 60) && (Rake <= 120) && Fdip ~=0 && Fdip ~= 90  %% Reverse
         FL=10^(-2.54+0.6*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.46+0.4*M)*(stress_ref/stress)^(1/3);
-    elseif (Rake > -180) && (Rake < 0) && Fdip ~=0 && Fdip ~= 90 %% Normal
+    elseif (Rake >= -120) && (Rake <= -60) && Fdip ~=0 && Fdip ~= 90 %% Normal
         FL=10^(-2.54+0.60*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.46+0.4*M)*(stress_ref/stress)^(1/3);
     else                                                         %% SCR
@@ -157,13 +157,13 @@ elseif FDfactor==3  % Leonard's correlation (2010)
         FW=10^(-1.6+0.4*M)*(stress_ref/stress)^(1/3);
     end
 elseif FDfactor==4  % Kumar et al.'s correlation (2017)
-    if Rake == 0 || Rake == 180                                  %% Strike Slip
+    if (Rake >= 150) && (Rake <= 210)  || (Rake >=-30) && (Rake <=30) %% Strike Slip
         FL=10^(-2.943+0.681*M)*(stress_ref/stress)^(1/3);
         FW=10^(-0.543+0.261*M)*(stress_ref/stress)^(1/3);
-    elseif (Rake > 0) && (Rake < 180) && Fdip ~=0 && Fdip ~= 90  %% Reverse
+    elseif (Rake >= 60) && (Rake <= 120) && Fdip ~=0 && Fdip ~= 90  %% Reverse
         FL=10^(-2.693+0.614*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.669+0.435*M)*(stress_ref/stress)^(1/3);
-    elseif (Rake > -180) && (Rake < 0) && Fdip ~=0 && Fdip ~= 90 %% Normal
+    elseif (Rake >= -120) && (Rake <= -60) && Fdip ~=0 && Fdip ~= 90 %% Normal
         FL=10^(-1.722+0.485*M)*(stress_ref/stress)^(1/3);
         FW=10^(-0.829+0.323*M)*(stress_ref/stress)^(1/3);
     else                                                         %% Subduction interface
@@ -171,13 +171,13 @@ elseif FDfactor==4  % Kumar et al.'s correlation (2017)
         FW=10^(-0.88+0.366*M)*(stress_ref/stress)^(1/3);
     end 
 else                % Cheng et al.'s correlation (2019) (for mainland China)
-    if Rake == 0 || Rake == 180                                  %% Strike Slip
+    if (Rake >= 150) && (Rake <= 210)  || (Rake >=-30) && (Rake <=30) %% Strike Slip
         FL=10^(-2.45+0.61*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.38+0.41*M)*(stress_ref/stress)^(1/3);
-    elseif (Rake > 0) && (Rake < 180) && Fdip ~=0 && Fdip ~= 90  %% Reverse
+    elseif (Rake >= 60) && (Rake <= 120) && Fdip ~=0 && Fdip ~= 90  %% Reverse
         FL=10^(-3.27+0.72*M)*(stress_ref/stress)^(1/3);
         FW=10^(-1.67+0.44*M)*(stress_ref/stress)^(1/3);
-    elseif (Rake > -180) && (Rake < 0) && Fdip ~=0 && Fdip ~= 90 %% Normal
+    elseif (Rake >= -120) && (Rake <= -60) && Fdip ~=0 && Fdip ~= 90 %% Normal
         FL=10^(-4.02+0.83*M)*(stress_ref/stress)^(1/3);
         FW=10^(-2.13+0.51*M)*(stress_ref/stress)^(1/3);
     else                                                         %% Undefined
