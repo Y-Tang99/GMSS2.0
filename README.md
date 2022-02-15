@@ -5,7 +5,7 @@ Two types are provided: namely GMSS2.0-SS and GMSS2.0-MS. GMSS2.0-SS is develope
 
 GMSS2.0 is featured as an enhanced software package for stochastic ground motion simulations with finite-fault sources, becuase the author made comprehensive improvements based on previous studies, such as it contains an updated corner-frequency and source duration (also called as rise time) model for genearing synthetic seismograms. Detailed information about these features can be found from the user mannual and the companion papers which have been published on BSSA and SRL (listed below).
 
-Previous related studies are listed here:
+Related studies are listed here:
 
 Tang, Y. (2022b). GMSS2.0: An Enhanced Software Program for Stochastic Finite-fault Ground Motion Simulation. Seismological Research Letters. https://doi.org/10.1785/0220210228
 
