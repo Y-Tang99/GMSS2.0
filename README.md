@@ -7,10 +7,11 @@ GMSS2.0 is featured as an enhanced software package for stochastic ground motion
 
 Related studies are listed here:
 
-Tang, Y. (2022b). GMSS2.0: An Enhanced Software Program for Stochastic Finite-fault Ground Motion Simulation. Seismological Research Letters. https://doi.org/10.1785/0220210228
+Tang, Y. (2022b). GMSS2.0: An Enhanced Software Program for Stochastic Finite-fault Ground Motion Simulation. Seismological Research Letters, 93: 1868–1879. https://doi.org/10.1785/0220210228
 
-Tang, Y. (2022a). An Updated Corner-frequency Model for Stochastic Finite-fault Ground Motion Simulation. Bulletin of Seismological Society of America.  https://doi.org/10.1785/0120210205
+Tang, Y. (2022a). An Updated Corner-frequency Model for Stochastic Finite-fault Ground Motion Simulation. Bulletin of Seismological Society of America, 112:
+921–938. https://doi.org/10.1785/0120210205
 
-Tang, Y., N.T.K., Lam & H.H. Tsang (2021). A Computational Tool for Ground Motion Simulations Incorporating Regional Crustal Conditions. Seismological Research Letters, 92(2A): 1129-1140.  https://doi.org/10.1785/0220200222
+Tang, Y., N.T.K., Lam & H.H. Tsang (2021). A Computational Tool for Ground Motion Simulations Incorporating Regional Crustal Conditions. Seismological Research Letters, 92(2A): 1129-1140. https://doi.org/10.1785/0220200222
 
 Disclaimer: This program is distributed for academic research sharing purposes only. There is no warranty, expressed or implied, from any individual (including the author Yuxiang Tang) or any institutions or affiliations. Any potential end-users should use this program with caution.
